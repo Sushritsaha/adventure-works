@@ -1,0 +1,24 @@
+{
+	"name": "onprem_SqlServer_ls",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "on-prem Sql Server  linked service",
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Data Source=SUSHRIT-SAHA\\SQLEXPRESS;Initial Catalog=AdventureWorksLT2019;User ID=sushrit",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "kv_adf_ls",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "sqlServerPassword"
+			}
+		},
+		"connectVia": {
+			"referenceName": "SHIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

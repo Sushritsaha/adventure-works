@@ -1,0 +1,12 @@
+{
+	"name": "kv_adf_ls",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "azure key vault linked service from adf",
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://kv-adventure-works.vault.azure.net/"
+		}
+	}
+}

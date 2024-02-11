@@ -1,0 +1,21 @@
+{
+	"name": "dbw_adf_ls",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "adf to azure dbw linked service",
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-3391631711265860.0.azuredatabricks.net",
+			"accessToken": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "kv_adf_ls",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "dbw-workspace-token"
+			},
+			"existingClusterId": "0204-152253-v1fg8zjv"
+		}
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"name": "adf-de-project-adventure-works",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a08bbe75-d487-488e-94bf-f7f5fcdd0fbb",
+		"tenantId": "2cdc906a-b558-4322-9bee-e83980fb782d"
+	}
+}
