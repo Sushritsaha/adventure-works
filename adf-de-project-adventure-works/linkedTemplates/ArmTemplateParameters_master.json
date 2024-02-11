@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-de-project-adventure-works"
+		},
+		"dl_ls_accountKey": {
+			"value": ""
+		},
+		"onprem_SqlServer_ls_connectionString": {
+			"value": "Integrated Security=False;Data Source=SUSHRIT-SAHA\\SQLEXPRESS;Initial Catalog=AdventureWorksLT2019;User ID=sushrit"
+		},
+		"dbw_adf_ls_properties_typeProperties_existingClusterId": {
+			"value": "0204-152253-v1fg8zjv"
+		},
+		"dl_ls_properties_typeProperties_url": {
+			"value": "https://adventureworksdlstorage.dfs.core.windows.net/"
+		},
+		"kv_adf_ls_properties_typeProperties_baseUrl": {
+			"value": "https://kv-adventure-works.vault.azure.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

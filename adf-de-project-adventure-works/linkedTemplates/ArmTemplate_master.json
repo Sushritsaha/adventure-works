@@ -1,0 +1,78 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-de-project-adventure-works"
+		},
+		"dl_ls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'dl_ls'"
+		},
+		"onprem_SqlServer_ls_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'onprem_SqlServer_ls'",
+			"defaultValue": "Integrated Security=False;Data Source=SUSHRIT-SAHA\\SQLEXPRESS;Initial Catalog=AdventureWorksLT2019;User ID=sushrit"
+		},
+		"dbw_adf_ls_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0204-152253-v1fg8zjv"
+		},
+		"dl_ls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adventureworksdlstorage.dfs.core.windows.net/"
+		},
+		"kv_adf_ls_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kv-adventure-works.vault.azure.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-de-project-adventure-works_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"dl_ls_accountKey": {
+						"value": "[parameters('dl_ls_accountKey')]"
+					},
+					"onprem_SqlServer_ls_connectionString": {
+						"value": "[parameters('onprem_SqlServer_ls_connectionString')]"
+					},
+					"dl_ls_properties_typeProperties_url": {
+						"value": "[parameters('dl_ls_properties_typeProperties_url')]"
+					},
+					"kv_adf_ls_properties_typeProperties_baseUrl": {
+						"value": "[parameters('kv_adf_ls_properties_typeProperties_baseUrl')]"
+					},
+					"dbw_adf_ls_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('dbw_adf_ls_properties_typeProperties_existingClusterId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
